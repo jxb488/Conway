@@ -15,21 +15,33 @@ public class World{
       Arrays.fill(a, '*');
     }
     fillRandom();
+    drawWorld();
     tick();
   }
 
   private void tick(){
     mirrorWorld = world;
-    glider(99,100);
+    glider(30,40);
   }
 
   private void fillRandom(){
-    for(char[] i:world) {
-      for(char j:i) {
-        System.out.println(j);
+    for(int i = 1; i < rows; i++) {
+      for(int j = 1; j < rows; j++) {
+        if((int)(Math.random() * 2) == 0){
+          world[i][j] = ' ';
+        }
       }
+      System.out.println();
     }
+  }
 
+  private void drawWorld(){
+    for(int i = 1; i < rows; i++) {
+      for(int j = 1; j < rows; j++) {
+        System.out.print(world[i][j]);
+      }
+      System.out.println();
+    }
   }
 
   private int glider(int x, int y){
@@ -38,24 +50,12 @@ public class World{
     for(int i = x - 1; i <= x + 1; i++) {
       for(int j = y - 1; j <= y + 1; j++){
         System.out.print(world[i][j]);
-        n++;
+        if(world[i][j] == '*')
+          n++;
       }
       System.out.println();
     }
     System.out.println(n + " neighbors.");
     return n;
   }
-
-  private boolean evaluatePoint(int neighbors){
-    boolean life = true;
-    /*    Any live cell with fewer than two live neighbours dies (referred to as underpopulation or exposure[1]).
-        Any live cell with more than three live neighbours dies (referred to as overpopulation or overcrowding).
-        Any live cell with two or three live neighbours lives, unchanged, to the next generation.
-        Any dead cell with exactly three live neighbours will come to life.*/
-
-
-
-    return life;
-  }
-
 }
