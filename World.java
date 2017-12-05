@@ -23,25 +23,23 @@ public class World
     ticks = inTicks;
     randomFactor = inRandom;
     world = new char[rowsPlus][colsPlus];
-    for (char[] a: world) 
+	
+    this.emptyWorld();
+	this.fillRandom();
+	this.startWorld();
+  }
+  
+  public void emptyWorld() {
+	for (char[] a: world) 
     {
       Arrays.fill(a, ' ');
-    }
-    
-	fillRandom(); // Seed random life
-    mirrorWorld = world;
-
-	/* Glider - testing logic and valid ticks
-    world[1][2] = '*';
-    world[2][3] = '*';
-    world[3][1] = '*';
-    world[3][2] = '*';
-    world[3][3] = '*'; */
-
-    tick(ticks);
-
+    }  
   }
-
+  
+  public void startWorld() {
+	tick(ticks);
+  }
+  
   private void tick(int loops)
   {
     mirrorWorld = new char[rowsPlus][colsPlus];
