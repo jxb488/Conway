@@ -27,15 +27,15 @@ public class World
     {
       Arrays.fill(a, ' ');
     }
-     fillRandom();
+    // fillRandom();
     // mirrorWorld = world;
 
-    /*world[1][2] = '*';
+    world[1][2] = '*';
     world[2][3] = '*';
     world[3][1] = '*';
     world[3][2] = '*';
     world[3][3] = '*';
-*/
+
     tick(ticks);
     // drawWorld();
     // glider(2,2);
@@ -46,7 +46,7 @@ public class World
     mirrorWorld = new char[rowsPlus][colsPlus];
     for(int h = 0; h < loops; h++)
     {
-
+	  drawWorld();
       for(int i = 1; i <= rows; i++)
       {
         for(int j = 1; j <= cols; j++)
@@ -58,10 +58,12 @@ public class World
       {
         for(int c = 1; c <= cols; c++)
         {
-          world[r][c] = mirrorWorld[r][c];
+          if (mirrorWorld[r][c] == '*') // avoid assigning by reference to mirrorworld! Assign by value!
+			world[r][c] = '*';
+		  else world[r][c] = ' ';
         }
       }
-	  drawWorld();
+	  
       try
       {
         Thread.sleep(1000);
@@ -94,7 +96,6 @@ public class World
     { //3 neighbors dead cell comes alive
       mirrorWorld [r][c] = '*';
     }
-
    }
           //int x = glider(i,j);
           // Conway logic
@@ -166,8 +167,8 @@ public class World
       }
       // System.out.println();
     }
-    // if(world[x][y] == '*')
-    // System.out.println("Point " + x + ", " + y + " has " + n + " neighbors.");
+    if(world[x][y] == '*')
+    System.out.println("Point " + x + ", " + y + " has " + n + " neighbors.");
     if(world[x][y] == '*') return n - 1;
     else return n;
   }
