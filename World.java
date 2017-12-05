@@ -27,18 +27,18 @@ public class World
     {
       Arrays.fill(a, ' ');
     }
-     fillRandom();
+     //fillRandom();
     mirrorWorld = world;
 
+	/* Glider - testing logic and valid ticks
     world[1][2] = '*';
     world[2][3] = '*';
     world[3][1] = '*';
     world[3][2] = '*';
-    world[3][3] = '*';
+    world[3][3] = '*'; */
 
     tick(ticks);
-    // drawWorld();
-    // glider(2,2);
+
   }
 
   private void tick(int loops)
@@ -97,32 +97,7 @@ public class World
       mirrorWorld [r][c] = '*';
     }
    }
-          //int x = glider(i,j);
-          // Conway logic
-          //if(x < 2)
-            //mirrorWorld[i][j] = ' ';
-          //if(x > 3)
-            //mirrorWorld[i][j] = ' ';
-          //if(x == 3)
-            //mirrorWorld[i][j] = '*';
-          //System.out.println("Spot at: " + i + ", " + j + ": " +
-          //world[i][j] + " -> " + x + " -> " + mirrorWorld[i][j]);
-      
-      
-    
-
-      //drawWorld();
-      //world = mirrorWorld;
-      //try
-      //{
-        //Thread.sleep(1000);
-      //} catch (InterruptedException e) 
-      //{
-        //e.printStackTrace();
-      //}
-    
   
-
   private void fillRandom()
   {
     for(int i = 1; i <= rows; i++) 
@@ -135,16 +110,13 @@ public class World
           // System.out.println("Filling point " + i + ", " + j);
         }
       }
-      // System.out.println();
     }
   }
 
   private void drawWorld()
   {
-    // System.out.println(" 0123456789");
     for(int i = 1; i <= rows; i++) 
     {
-      // System.out.print(i - 1);
       for(int j = 1; j <= cols; j++) 
       {
         System.out.print(world[i][j]);
@@ -156,7 +128,6 @@ public class World
   private int countNeighbors(int x, int y)
   {
     int n=0;
-    // System.out.println("Grid:\n_________");
     for(int i = x - 1; i <= x + 1; i++) 
     {
       for(int j = y - 1; j <= y + 1; j++)
@@ -172,11 +143,4 @@ public class World
     if(world[x][y] == '*') return n - 1;
     else return n;
   }
-  //public void changeColor() {
-    //String colors[] = {"\u001b[30m","\u001b[31m","\u001b[32m","\u001b[33m","\u001b[34m","\u001b[35m",
-      //"\u001b[36m","\u001b[37m","\u001b[0m"};
-    //int picker = (int)(Math.random() * 8);
-    //System.out.print(colors[picker]); 
-  //} 
-
 }
