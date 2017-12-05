@@ -27,8 +27,8 @@ public class World
     {
       Arrays.fill(a, ' ');
     }
-    // fillRandom();
-    // mirrorWorld = world;
+     fillRandom();
+    mirrorWorld = world;
 
     world[1][2] = '*';
     world[2][3] = '*';
@@ -58,7 +58,7 @@ public class World
       {
         for(int c = 1; c <= cols; c++)
         {
-          if (mirrorWorld[r][c] == '*') // avoid assigning by reference to mirrorworld! Assign by value!
+          if (mirrorWorld[r][c] == '*')
 			world[r][c] = '*';
 		  else world[r][c] = ' ';
         }
@@ -167,8 +167,8 @@ public class World
       }
       // System.out.println();
     }
-    if(world[x][y] == '*')
-    System.out.println("Point " + x + ", " + y + " has " + n + " neighbors.");
+    //if(world[x][y] == '*')
+    //System.out.println("Point " + x + ", " + y + " has " + n + " neighbors.");
     if(world[x][y] == '*') return n - 1;
     else return n;
   }
