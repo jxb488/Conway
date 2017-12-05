@@ -40,6 +40,7 @@ public class World{
           // System.out.println(x);
         }
       }
+      world = mirrorWorld;
       drawWorld();
       try{
         Thread.sleep(500);
