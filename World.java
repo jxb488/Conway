@@ -12,9 +12,7 @@ public class World
   private int ticks;
   private int randomFactor;
 
-  //Patterns pat = new Patterns();
-
-  public World(int inRows, int inCols, int inTicks, int inRandom)
+   public World(int inRows, int inCols, int inTicks, int inRandom)
   {
     rowsPlus = inRows + 2; //Create invisible rows on either side
     colsPlus = inCols + 2; //Create invisible columns on either side
@@ -29,17 +27,17 @@ public class World
 	this.startWorld();
   }
   
+  public void startWorld() {
+	tick(ticks);
+  }
+   
   public void emptyWorld() {
 	for (char[] a: world) 
     {
       Arrays.fill(a, ' ');
     }  
   }
-  
-  public void startWorld() {
-	tick(ticks);
-  }
-  
+ 
   private void tick(int loops)
   {
     mirrorWorld = new char[rowsPlus][colsPlus];
