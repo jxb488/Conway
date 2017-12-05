@@ -27,7 +27,8 @@ public class World
     {
       Arrays.fill(a, ' ');
     }
-     //fillRandom();
+    
+	fillRandom(); // Seed random life
     mirrorWorld = world;
 
 	/* Glider - testing logic and valid ticks
