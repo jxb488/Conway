@@ -55,7 +55,7 @@ public class World
       {
         for(int c = 1; c <= cols; c++)
         {
-          if (mirrorWorld[r][c] == '*')
+          if (mirrorWorld[r][c] == '*') // avoid accidentally assigning reference, rather than value
 			world[r][c] = '*';
 		  else world[r][c] = ' ';
         }
